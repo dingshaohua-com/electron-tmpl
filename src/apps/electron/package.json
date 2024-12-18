@@ -1,0 +1,22 @@
+{
+  "name": "electron-tmpl",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "license": "MIT",
+  "type": "module",
+  "startSequence": 2,
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1"
+  },
+  "dependencies": {
+    "@electron-tmpl/utils": "workspace:*",
+    "electron-store": "^10.0.0",
+    "electron-updater": "^6.3.9",
+    "fix-path": "^4.0.0",
+    "import-sync": "^2.2.2"
+  }
+}
