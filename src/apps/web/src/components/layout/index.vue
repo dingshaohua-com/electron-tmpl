@@ -11,6 +11,5 @@ import LayoutContent from "./content.vue";
 <style lang="scss" scoped>
 .layout {
   height: 100%;
-
 }
 </style>

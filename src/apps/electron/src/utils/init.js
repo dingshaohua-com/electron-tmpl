@@ -4,6 +4,7 @@ import { app } from "electron"; // 此模块用于 控制应用程序的事件�
 // import { usb } from "usb";
 // import webSendEnum from '../ipc/web-send-enum.js'
 
+
 fixPath();
 process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
 app.commandLine.appendSwitch("lang", "zh-CN"); // 设置electron（包含渲染进程 默认语言为）为中文

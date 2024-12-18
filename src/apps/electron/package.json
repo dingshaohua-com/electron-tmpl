@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@electron-tmpl/utils": "workspace:*",
+    "agora-electron-sdk": "^4.5.0",
     "electron-store": "^10.0.0",
     "electron-updater": "^6.3.9",
     "fix-path": "^4.0.0",

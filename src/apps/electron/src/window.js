@@ -1,8 +1,11 @@
-import path from "path";
-import { app } from "electron";
-import { BrowserWindow, nativeImage } from "electron";
+import path from 'path';
+import { app } from 'electron';
+import { BrowserWindow, nativeImage } from 'electron';
+
 
 export const createMainWindow = () => {
+  console.log(111, );
+  
   // 创建主应用窗口
   const mainWinOtp = {
     width: 900,
@@ -12,25 +15,26 @@ export const createMainWindow = () => {
     resizable: false,
     webPreferences: {
       webSecurity: false,
-      preload: path.join(__dirname, "../src/preload.js"),
+      preload: path.join(__dirname, '../src/preload.js'),
+      // nodeIntegration: true,
+      // contextIsolation: false,
     },
-    titleBarStyle: "hidden",
+    titleBarStyle: 'hidden',
     titleBarOverlay: {
-      color: "rgba(0,0,0,0)",
+      color: 'rgba(0,0,0,0)',
       height: 35,
-      symbolColor: "white",
+      symbolColor: 'white',
     },
   };
   const mainWin = new BrowserWindow(mainWinOtp);
   mainWin.setMaximizable(false);
   if (app.isPackaged) {
-    mainWin.loadFile(path.join(__dirname, "../src/web/index.html"));
+    mainWin.loadFile(path.join(__dirname, '../src/web/index.html'));
   } else {
-    mainWin.loadURL("http://localhost:1234");
+    mainWin.loadURL('http://localhost:1234');
   }
   return mainWin;
 };
-
 
 export const createOtherWindow = (width, height, route) => {
   const mainWin = global.app.mainWindow;
@@ -42,9 +46,9 @@ export const createOtherWindow = (width, height, route) => {
     height,
     resizable: false,
     webPreferences: {
-      preload: path.join(__dirname, "./preload.js"),
+      preload: path.join(__dirname, './preload.js'),
     },
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     icon: nativeImage.createEmpty(),
     autoHideMenuBar: true, // 子窗口不需要在要完整的父窗口的菜单栏
     // frame: false, // 隐藏标题栏
@@ -54,10 +58,10 @@ export const createOtherWindow = (width, height, route) => {
   win.setMinimizable(false); // 隐藏窗口的最小化按钮
   win.setMaximizable(false); // 隐藏窗口的最大化按钮
   if (app.isPackaged) {
-    const entryPath = path.resolve(__dirname,'..', 'src', 'web', 'index.html');
-    win.loadFile(entryPath, { hash:route })
+    const entryPath = path.resolve(__dirname, '..', 'src', 'web', 'index.html');
+    win.loadFile(entryPath, { hash: route });
   } else {
-    win.loadURL("http://localhost:1234/#"+route);
+    win.loadURL('http://localhost:1234/#' + route);
   }
   return win;
 };

@@ -11,10 +11,14 @@ Object.defineProperty(global, "__dirname", {
     // ---这段代码不能提出去---
     const stackLines = new Error().stack.split("\n");
     const callerLine = stackLines[2];
-    const [_, callerFilePath] = callerLine.match(/\(([^)]*)\)/);
+    const res = callerLine.match(/\(([^)]*)\)/);
+    if(res){
+      const [_, callerFilePath] = res;
+      return path.dirname(fileURLToPath(callerFilePath));
+    }
 
     // --- 返回出去 ---
-    return path.dirname(fileURLToPath(callerFilePath));
+    return '';
   },
   set(value) {
     dirnameVal = value;
@@ -35,4 +39,3 @@ global.app = {
   mainWindow: null,
   store:new Store()
 };
-
