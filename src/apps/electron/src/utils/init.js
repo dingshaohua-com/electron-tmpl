@@ -13,12 +13,3 @@ app.commandLine.appendSwitch("lang", "zh-CN"); // 设置electron（包含渲染�
 //   const win = global.app.mainWindow;
 //   win.webContents.send(webSendEnum.USB, params);
 // };
-// // 监听设备连接
-// usb.on("attach", (device) => {
-//   handler({ status: "attach", device });
-// });
-// // 监听设备断开
-// usb.on("detach", (device) => {
-//   handler({ status: "detach", device });
-// });
-// // --===监听Usb插拔 end===--
