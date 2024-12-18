@@ -12,6 +12,10 @@
   "devDependencies": {
     "electron": "^33.2.1"
   },
+  "agora_electron": {
+    "platform": "darwin",
+    "prebuilt": true
+  },
   "dependencies": {
     "@electron-tmpl/utils": "workspace:*",
     "agora-electron-sdk": "^4.5.0",
