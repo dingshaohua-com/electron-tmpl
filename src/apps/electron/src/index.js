@@ -15,3 +15,25 @@ app.whenReady().then(() => {
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
+
+
+// 检查并获取设备权限
+const checkAndApplyDeviceAccessPrivilege = async ()=> {
+  // 检查并获取摄像头权限
+  const cameraPrivilege = systemPreferences.getMediaAccessStatus('camera');
+  console.log(`Camera privilege before applying: ${cameraPrivilege}`);
+  if (cameraPrivilege !== 'granted') {
+      await systemPreferences.askForMediaAccess('camera');
+      console.log('Requested camera access from user');
+  }
+
+  // 检查并获取麦克风权限
+  const micPrivilege = systemPreferences.getMediaAccessStatus('microphone');
+  console.log(`Microphone privilege before applying: ${micPrivilege}`);
+  if (micPrivilege !== 'granted') {
+      await systemPreferences.askForMediaAccess('microphone');
+      console.log('Requested microphone access from user');
+  }
+}
+
+checkAndApplyDeviceAccessPrivilege();
