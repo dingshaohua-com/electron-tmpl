@@ -6,9 +6,9 @@ import { BrowserWindow } from 'electron';
 // 将网页内容与 Electron 的预加载脚本隔离开来，使得它们各自运行在独立的 JavaScript 环境中。
 
 // 防止了网站直接访问Electron的内部API和强大的preload脚本AP
-const preload = path.resolve('src','preload.js');
+const preload = path.resolve('src','preload.cjs');
 app.allowRendererProcessReuse = false;
-console.log(111,preload);
+
 export const createMainWindow = () => {
   // 创建主应用窗口
   const mainWinOtp = {

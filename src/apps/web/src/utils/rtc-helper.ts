@@ -11,7 +11,7 @@ const {
 const APPID = '422860c7ccc744b284943683959f4c38';
 // 填入你的临时 Token
 let token =
-  '007eJxTYLhtdfp9xRldS56HIvqx/M3R7zInpjmZb33hX6cy92DrARYFBhMjIwszg2Tz5ORkcxOTJCMLE0sTYzMLY0tTyzSTZGOLH5OS0hsCGRmWFccwMTJAIIjPypCWWVRcwsAAABuwHrc=';
+  '007eJxTYOB1yrki2ajs31jSpGFUuUTxqJyORdHOvouLglPf2NpfyFJgMDEysjAzSDZPTk42NzFJMrIwsTQxNrMwtjS1TDNJNraofZmc3hDIyBDhe5WBEQpBfFaGtMyi4hIGBgCBlh0f';
 // 填入生成 Token 时使用的频道名
 const channel = 'first';
 // 用户 ID，并确保其在频道内的唯一性
@@ -50,11 +50,13 @@ export const getEventHandles = (rtc) => {
     // 监听本地用户加入频道事件
     onJoinChannelSuccess: ({ channelId, localUid }, elapsed) => {
       console.log('成功加入频道：' + channelId);
+      console.log(rtc);
+      
       // 本地用户加入频道后，设置本地视频窗口
       rtc.setupLocalVideo({
         sourceType: VideoSourceType.VideoSourceCameraPrimary,
         uid: uid,
-        view: document.querySelector('#join-channel-local-video'),
+        view: document.querySelector('.join-channel-local-video'),
         setupMode: VideoViewSetupMode.VideoViewSetupAdd,
       });
     },
@@ -67,7 +69,7 @@ export const getEventHandles = (rtc) => {
         {
           sourceType: VideoSourceType.VideoSourceRemote,
           uid: remoteUid,
-          view: document.querySelector('#join-channel-remote-video'),
+          view: document.querySelector('.join-channel-remote-video'),
           setupMode: VideoViewSetupMode.VideoViewSetupAdd,
         },
         { channelId },
@@ -81,7 +83,7 @@ export const getEventHandles = (rtc) => {
       rtc.setupRemoteVideo({
         sourceType: VideoSourceType.VideoSourceRemote,
         uid: remoteUid,
-        view: remoteVideoContainer,
+        view: document.querySelector('.join-channel-remote-video'),
         setupMode: VideoViewSetupMode.VideoViewSetupRemove,
       });
     },

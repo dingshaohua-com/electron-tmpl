@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { initRtc, joinChannel, getEventHandles } from '@/utils/rtc-helper'
+import { initRtc, joinChannel, getEventHandles } from '@/utils/rtc-helper';
 
 const rtcInit = async () => {
   try {
@@ -7,15 +7,6 @@ const rtcInit = async () => {
     const rtc = initRtc();
     console.log('RTC初始化完成');
 
-    // 设置本地视频
-    // const localVideo = document.querySelector('.join-channel-local-video');
-    // const setupLocalVideoResult = rtc.setupLocalVideo(localVideo);
-    // if (setupLocalVideoResult < 0) {
-    //   console.error(`setupLocalVideo failed with error code: ${setupLocalVideoResult}`);
-    //   return;
-    // }
-
-    // 启用视频模块
     const enableVideoResult = rtc.enableVideo();
     if (enableVideoResult < 0) {
       console.error(`enableVideo failed with error code: ${enableVideoResult}`);
@@ -23,7 +14,6 @@ const rtcInit = async () => {
     }
     console.log('启用视频模块');
 
-    // 开启本地视频预览
     const ret = rtc.startPreview();
     if (ret < 0) {
       console.error(`startPreview failed with error code: ${ret}`);
@@ -31,8 +21,8 @@ const rtcInit = async () => {
     }
     console.log('开启本地视频预览');
 
-
-    joinChannel(rtc)
+    joinChannel(rtc);
+    console.log('加入频道');
 
     // 注册事件回调
     const eventHandles = getEventHandles(rtc);
@@ -44,20 +34,47 @@ const rtcInit = async () => {
 </script>
 
 <template>
-  <el-button @click="rtcInit()">开始注册</el-button>
-  <div>
-    <!--在界面中添加本地视频窗口 -->
-    <div id="join-channel-local-video" style="width: 300px; height: 300px; float: left"></div>
-    <!--在界面中添加远端视频窗口 -->
-    <div id="join-channel-remote-video" style="width: 300px; height: 300px; float: left"></div>
+  <div class="welcom">
+    <el-button @click="rtcInit()">开始注册</el-button>
+    <div class="videos">
+      <div class="video">
+        <div class="join-channel-local-video"></div>
+        <div class="title">本地视频窗口</div>
+      </div>
+      <div class="video">
+        <div class="join-channel-remote-video"></div>
+        <div class="title">远端视频窗口</div>
+      </div>
+    </div>
   </div>
-
 </template>
 
 <style scoped lang="scss">
-.local-video {
-  width: 400px;
-  height: 300px;
-  background-color: rgba($color: #000000, $alpha: 0.1);
+.welcom {
+  padding: 10px;
+}
+.videos {
+  display: flex;
+  margin-left: -10px;
+  margin-top: 10px;
+
+  .video {
+    width: 300px;
+    height: 200px;
+    margin-left: 10px;
+    background-color: #adf59d;
+    position: relative;
+    .join-channel-local-video, .join-channel-remote-video{
+      width: 100%;
+      height: 100%;
+    }
+    .title {
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #fefefe;
+      font-size: 12px;
+    }
+  }
 }
 </style>
