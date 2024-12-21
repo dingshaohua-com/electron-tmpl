@@ -13,4 +13,7 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
+  optimizeDeps: {
+    exclude: ["agora-electron-sdk"]// 排除agora-electron-sdk依赖项
+  }
 })

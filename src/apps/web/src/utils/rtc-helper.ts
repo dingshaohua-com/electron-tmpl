@@ -11,7 +11,7 @@ const {
 const APPID = '422860c7ccc744b284943683959f4c38';
 // 填入你的临时 Token
 let token =
-  '007eJxTYOB1yrki2ajs31jSpGFUuUTxqJyORdHOvouLglPf2NpfyFJgMDEysjAzSDZPTk42NzFJMrIwsTQxNrMwtjS1TDNJNraofZmc3hDIyBDhe5WBEQpBfFaGtMyi4hIGBgCBlh0f';
+  '007eJxTYFjZZyi240TtaefGmZ9eLlB558zXojh7Q7bRydU1Hitq0r0UGEyMjCzMDJLNk5OTzU1MkowsTCxNjM0sjC1NLdNMko0tnBrT0hsCGRminVKZGRkgEMRnZUjLLCouYWAAAF1yHq4=';
 // 填入生成 Token 时使用的频道名
 const channel = 'first';
 // 用户 ID，并确保其在频道内的唯一性
