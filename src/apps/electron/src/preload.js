@@ -19,5 +19,5 @@ if (!window.electronApi) {
     electronApiContent[exposedForWebEventName] = (callback) =>
       ipcRenderer.on(eventName, (_event, value) => callback(value));
   }
-  contextBridge.exposeInMainWorld("electronApi", electronApiContent);
+  contextBridge.exposeInMainWorld("$electron", electronApiContent);
 }

@@ -3,18 +3,22 @@ import HelloWorld from '@/components/hello-world.vue';
 </script>
 
 <template>
-  <div>
+  <div class="welcom">
     <a href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
       <img src="@/assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
+    <hello-world msg="Vite + Vue" />
   </div>
-  <hello-world msg="Vite + Vue" />
 </template>
 
 <style scoped>
+.welcom {
+  margin-top: 60px;
+  text-align: center;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
