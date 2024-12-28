@@ -1,6 +1,6 @@
 {
-  "appId": "com.dsh.car",
-  "productName": "车机助手",
+  "appId": "com.dsh.tmpl",
+  "productName": "测试应用",
   "electronLanguages": ["zh-CN"],
   "buildDependenciesFromSource": true,
   "nodeGypRebuild": false,
@@ -11,7 +11,6 @@
   "directories": {
     "output": "../../../dist"
   },
-
   "mac": {
     "icon": "src/files/logo/logo.icns",
     "target": [
@@ -20,10 +19,6 @@
         "arch": ["universal"]
       }
     ],
-    "publish": {
-      "provider": "generic",
-      "url": "https://file.dingshaohua.com/car-app/update"
-    },
     "x64ArchFiles": "*"
   },
   "win": {
@@ -33,11 +28,7 @@
         "target": "nsis",
         "arch": ["ia32", "x64", "arm64"]
       }
-    ],
-    "publish": {
-      "provider": "generic",
-      "url": "https://file.dingshaohua.com/car-app/update"
-    }
+    ]
   },
   "nsis": {
     "oneClick": false,
