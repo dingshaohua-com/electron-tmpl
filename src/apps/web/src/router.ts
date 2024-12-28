@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/index.vue";
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 // import PageView from "@/components/page-view.vue";
 
 const routes = [
@@ -30,6 +30,6 @@ const routes = [
   // },
 ];
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(), // 如果与electron集成，用history会白屏
   routes,
 });

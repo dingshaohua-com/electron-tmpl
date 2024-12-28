@@ -24,7 +24,10 @@ export const createMainWindow = () => {
   const mainWin = new BrowserWindow(mainWinOtp);
   mainWin.setMaximizable(false);
   if (app.isPackaged) {
-    mainWin.loadFile(path.join(__dirname, "../src/web/index.html"));
+    const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
+    console.log(entryPath);
+    
+    mainWin.loadFile(entryPath);
   } else {
     mainWin.loadURL("http://localhost:1234");
   }
@@ -54,7 +57,7 @@ export const createOtherWindow = (width, height, route) => {
   win.setMinimizable(false); // 隐藏窗口的最小化按钮
   win.setMaximizable(false); // 隐藏窗口的最大化按钮
   if (app.isPackaged) {
-    const entryPath = path.resolve(__dirname,'..', 'src', 'web', 'index.html');
+    const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
     win.loadFile(entryPath, { hash:route })
   } else {
     win.loadURL("http://localhost:1234/#"+route);
