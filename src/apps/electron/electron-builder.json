@@ -47,5 +47,8 @@
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true
   },
-  "extraResources": ["electron-builder.json"]
+  "extraResources": ["electron-builder.json"],
+  "dmg": {
+    "sign": true
+  }
 }
