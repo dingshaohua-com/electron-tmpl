@@ -10,7 +10,10 @@ export const createMainWindow = () => {
     resizable: false,
     webPreferences: {
       webSecurity: false,
-      preload: path.join(__dirname, "../src/preload.js"),
+      preload: path.join(__dirname, "../src/preload.mjs"),
+      nodeIntegrationInWorker: true,
+      nodeIntegration: true, // 集成node环境到预加载和渲染进程
+      contextIsolation: false, //关闭上下文隔离
     },
     // titleBarStyle: "hidden",
     // titleBarOverlay: {
@@ -37,7 +40,10 @@ export const createOtherWindow = (width, height, route) => {
     height,
     resizable: false,
     webPreferences: {
-      preload: path.join(__dirname, "./preload.js"),
+      preload: path.join(__dirname, "./preload.mjs"),
+      nodeIntegrationInWorker: true,
+      nodeIntegration: true, // 集成node环境到预加载和渲染进程
+      contextIsolation: false, //关闭上下文隔离
     },
     backgroundColor: "#fff",
     icon: nativeImage.createEmpty(),
