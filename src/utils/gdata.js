@@ -1,8 +1,6 @@
 import path from "node:path";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
-import Store from 'electron-store';
-import { getResourcesPath } from './index.js'
 
 // 定义一个全局变量 __dirname
 let dirnameVal = "";
@@ -30,9 +28,7 @@ global.require = (path) => {
   return trequire(path);
 };
 
-const cwd = getResourcesPath();
 global.app = {
   mainWindow: null,
-  store:new Store()
 };
 

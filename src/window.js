@@ -7,30 +7,22 @@ export const createMainWindow = () => {
   const mainWinOtp = {
     width: 900,
     height: 600,
-    minWidth: 900,
-    minHeight: 600,
     resizable: false,
     webPreferences: {
       webSecurity: false,
       preload: path.join(__dirname, "../src/preload.js"),
     },
-    titleBarStyle: "hidden",
-    titleBarOverlay: {
-      color: "rgba(0,0,0,0)",
-      height: 35,
-      symbolColor: "white",
-    },
+    // titleBarStyle: "hidden",
+    // titleBarOverlay: {
+    //   color: "rgba(0,0,0,0)",
+    //   height: 35,
+    //   symbolColor: "white",
+    // },
   };
   const mainWin = new BrowserWindow(mainWinOtp);
   mainWin.setMaximizable(false);
-  if (app.isPackaged) {
-    const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
-    console.log(entryPath);
-    
-    mainWin.loadFile(entryPath);
-  } else {
-    mainWin.loadURL("http://localhost:1234");
-  }
+  const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
+  mainWin.loadFile(entryPath);
   return mainWin;
 };
 
@@ -56,11 +48,7 @@ export const createOtherWindow = (width, height, route) => {
   const win = new BrowserWindow(winOtp);
   win.setMinimizable(false); // 隐藏窗口的最小化按钮
   win.setMaximizable(false); // 隐藏窗口的最大化按钮
-  if (app.isPackaged) {
-    const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
-    win.loadFile(entryPath, { hash:route })
-  } else {
-    win.loadURL("http://localhost:1234/#"+route);
-  }
+  const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
+  win.loadFile(entryPath, { hash:route })
   return win;
 };
