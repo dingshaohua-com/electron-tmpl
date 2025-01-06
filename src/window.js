@@ -1,9 +1,8 @@
-import path from "path";
-import { app } from "electron";
-import { BrowserWindow, nativeImage } from "electron";
+const path = require("path");
+const { app } = require("electron");
+const { BrowserWindow, nativeImage } = require("electron");
 
-
-export const createMainWindow = () => {
+exports.createMainWindow = () => {
   // 创建主应用窗口
   const mainWinOtp = {
     width: 900,
@@ -25,14 +24,18 @@ export const createMainWindow = () => {
   };
   const mainWin = new BrowserWindow(mainWinOtp);
   mainWin.setMaximizable(false);
-  const entryPath = path.join(app.getAppPath(), 'src', 'renderder', 'index.html');
+  const entryPath = path.join(
+    app.getAppPath(),
+    "src",
+    "renderder",
+    "index.html"
+  );
   mainWin.loadFile(entryPath);
   return mainWin;
 };
 
-
-export const createOtherWindow = (width, height, route) => {
-  const mainWin = global.app.mainWindow;
+exports.createOtherWindow = (width, height, route) => {
+  // const mainWin = global.app.mainWindow;
   // 创建关于应用窗口
   const winOtp = {
     parent: mainWin,
@@ -55,7 +58,12 @@ export const createOtherWindow = (width, height, route) => {
   const win = new BrowserWindow(winOtp);
   win.setMinimizable(false); // 隐藏窗口的最小化按钮
   win.setMaximizable(false); // 隐藏窗口的最大化按钮
-  const entryPath = path.join(app.getAppPath(), 'src', 'renderder', 'index.html');
-  win.loadFile(entryPath, { hash:route })
+  const entryPath = path.join(
+    app.getAppPath(),
+    "src",
+    "renderder",
+    "index.html"
+  );
+  win.loadFile(entryPath, { hash: route });
   return win;
 };
