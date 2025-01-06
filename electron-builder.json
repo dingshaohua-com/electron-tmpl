@@ -17,38 +17,12 @@
       {
         "target": "dmg",
         "arch": ["universal"]
-      },
-      {
-        "target": "zip",
-        "arch": ["universal"]
       }
     ],
-    "x64ArchFiles": "*",
-    "publish": {
-      "provider": "generic",
-      "url": "https://file.dingshaohua.com/electron-tmpl"
-    }
-  },
-  "win": {
-    "icon": "src/files/logo/logo.ico",
-    "target": [
-      {
-        "target": "nsis",
-        "arch": ["ia32", "x64", "arm64"]
-      }
-    ]
-  },
-  "nsis": {
-    "oneClick": false,
-    "perMachine": true,
-    "allowElevation": true,
-    "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": true,
-    "createDesktopShortcut": true,
-    "createStartMenuShortcut": true
+    "x64ArchFiles": "*"
   },
   "extraResources": ["electron-builder.json"],
   "dmg": {
-    "sign": true
+    "sign": false
   }
 }

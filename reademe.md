@@ -1,0 +1,57 @@
+```js
+{
+  "appId": "com.dsh.tmpl",
+  "productName": "测试应用",
+  "electronLanguages": ["zh-CN"],
+  "buildDependenciesFromSource": true,
+  "nodeGypRebuild": false,
+  "npmRebuild": false,
+  "asar": false,
+  "buildVersion": "1",
+  "artifactName": "${productName}-${version}.${ext}",
+  "directories": {
+    "output": "../../../dist"
+  },
+  "mac": {
+    "icon": "src/files/logo/logo.icns",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["universal"]
+      },
+      {
+        "target": "zip",
+        "arch": ["universal"]
+      }
+    ],
+    "x64ArchFiles": "*",
+    "publish": {
+      "provider": "generic",
+      "url": "https://file.dingshaohua.com/electron-tmpl"
+    }
+  },
+  "win": {
+    "icon": "src/files/logo/logo.ico",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["ia32", "x64", "arm64"]
+      }
+    ]
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  },
+  "extraResources": ["electron-builder.json"],
+  "dmg": {
+    "sign": false
+  }
+}
+
+```
