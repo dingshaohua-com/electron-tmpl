@@ -1,11 +1,7 @@
 {
   "appId": "com.dsh.tmpl",
   "productName": "测试应用",
-  "electronLanguages": ["zh-CN"],
-  "buildDependenciesFromSource": true,
-  "nodeGypRebuild": false,
-  "npmRebuild": false,
-  "asar": true,
+  "asar": false,
   "buildVersion": "1",
   "artifactName": "${productName}-${version}.${ext}",
   "mac": {
@@ -15,8 +11,7 @@
         "target": "dmg",
         "arch": ["universal"]
       }
-    ],
-    "x64ArchFiles": "*"
+    ]
   },
   "extraResources": ["electron-builder.json"],
   "dmg": {
