@@ -5,12 +5,9 @@
   "buildDependenciesFromSource": true,
   "nodeGypRebuild": false,
   "npmRebuild": false,
-  "asar": false,
+  "asar": true,
   "buildVersion": "1",
   "artifactName": "${productName}-${version}.${ext}",
-  "directories": {
-    "output": "../../../dist"
-  },
   "mac": {
     "icon": "src/files/logo/logo.icns",
     "target": [
