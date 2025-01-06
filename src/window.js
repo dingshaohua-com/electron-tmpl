@@ -1,6 +1,6 @@
 import path from "path";
-import { app } from "electron";
 import { BrowserWindow, nativeImage } from "electron";
+
 
 export const createMainWindow = () => {
   // 创建主应用窗口
@@ -10,7 +10,7 @@ export const createMainWindow = () => {
     resizable: false,
     webPreferences: {
       webSecurity: false,
-      preload: path.join(__dirname, "../src/preload.mjs"),
+      preload: path.join(global.app.appPath, 'src', "preload.mjs"),
       nodeIntegrationInWorker: true,
       nodeIntegration: true, // 集成node环境到预加载和渲染进程
       contextIsolation: false, //关闭上下文隔离
@@ -24,7 +24,7 @@ export const createMainWindow = () => {
   };
   const mainWin = new BrowserWindow(mainWinOtp);
   mainWin.setMaximizable(false);
-  const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
+  const entryPath = path.join( global.app.appPath, 'src', 'renderder', 'index.html');
   mainWin.loadFile(entryPath);
   return mainWin;
 };
@@ -40,7 +40,7 @@ export const createOtherWindow = (width, height, route) => {
     height,
     resizable: false,
     webPreferences: {
-      preload: path.join(__dirname, "./preload.mjs"),
+      preload: path.join(global.app.appPath, 'src', "preload.mjs"),
       nodeIntegrationInWorker: true,
       nodeIntegration: true, // 集成node环境到预加载和渲染进程
       contextIsolation: false, //关闭上下文隔离
@@ -54,7 +54,7 @@ export const createOtherWindow = (width, height, route) => {
   const win = new BrowserWindow(winOtp);
   win.setMinimizable(false); // 隐藏窗口的最小化按钮
   win.setMaximizable(false); // 隐藏窗口的最大化按钮
-  const entryPath = path.resolve(__dirname,'..', 'src', 'renderder', 'index.html');
+  const entryPath = path.join(global.app.appPath, 'src', 'renderder', 'index.html');
   win.loadFile(entryPath, { hash:route })
   return win;
 };

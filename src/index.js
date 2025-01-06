@@ -2,6 +2,9 @@ import "./utils/init.js";
 import { createMainWindow } from "./window.js";
 import { app, BrowserWindow } from "electron";
 import { dontOpenFromMount } from "./utils/index.js";
+import path from "path";
+
+global.app.appPath = path.join(app.getAppPath(), 'src', 'apps', 'electron');
 
 //  当 Electron 准备完成的时候将会被触发此钩子，这个阶段你可以创建浏览器 窗口，并且执行一些其它API
 app.whenReady().then(() => {
