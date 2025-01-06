@@ -1,19 +1,31 @@
 {
-  "appId": "com.dsh.tmpl",
+  "appId": "com.dyxc.liveStudent",
   "productName": "测试应用",
   "electronLanguages": ["zh-CN"],
   "buildDependenciesFromSource": true,
   "nodeGypRebuild": false,
   "npmRebuild": false,
   "asar": false,
-  "buildVersion": "1",
+  "buildVersion": "14",
   "artifactName": "${productName}-${version}.${ext}",
   "directories": {
     "output": "../../../dist"
   },
+  "mas": {
+    "entitlements": "entitlements.mas.plist",
+    "entitlementsInherit": "entitlements.mas.inherit.plist",
+    "provisioningProfile": "provision.provisionprofile"
+  },
   "mac": {
     "icon": "src/files/logo/logo.icns",
+    "extendInfo": {
+      "ITSAppUsesNonExemptEncryption": false
+    },
     "target": [
+      {
+        "target": "mas",
+        "arch": ["universal"]
+      },
       {
         "target": "dmg",
         "arch": ["universal"]
@@ -26,7 +38,7 @@
     "x64ArchFiles": "*",
     "publish": {
       "provider": "generic",
-      "url": "https://file.dingshaohua.com/electron-tmpl"
+      "url": "https://cos.dingshaohua.com/electron-tmpl"
     }
   },
   "win": {
