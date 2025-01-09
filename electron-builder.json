@@ -1,19 +1,13 @@
 {
   "appId": "com.dsh.tmpl",
   "productName": "测试应用",
-  "asar": false,
+  "asar": true,
   "buildVersion": "1",
   "artifactName": "${productName}-${version}.${ext}",
-  "mac": {
-    "icon": "src/files/logo/logo.icns",
-    "target": [
-      {
-        "target": "dmg",
-        "arch": ["universal"]
-      }
-    ]
-  },
   "extraResources": ["electron-builder.json"],
+  "mac": {
+    "icon": "src/files/logo/logo.icns"
+  },
   "dmg": {
     "sign": false
   }

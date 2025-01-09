@@ -10,7 +10,7 @@ exports.createMainWindow = () => {
     resizable: false,
     webPreferences: {
       webSecurity: false,
-      preload: path.join(app.getAppPath(), "src", "preload.mjs"),
+      preload: path.join(app.getAppPath(), "src", "preload.js"),
       nodeIntegrationInWorker: true,
       nodeIntegration: true, // 集成node环境到预加载和渲染进程
       contextIsolation: false, //关闭上下文隔离
@@ -30,7 +30,8 @@ exports.createMainWindow = () => {
     "renderder",
     "index.html"
   );
-  mainWin.loadFile(entryPath);
+  mainWin.loadURL('http://localhost:8080');
+  // mainWin.loadFile(entryPath);
   return mainWin;
 };
 
@@ -44,7 +45,7 @@ exports.createOtherWindow = (width, height, route) => {
     height,
     resizable: false,
     webPreferences: {
-      preload: path.join(app.getAppPath(), "src", "preload.mjs"),
+      preload: path.join(app.getAppPath(), "src", "preload.js"),
       nodeIntegrationInWorker: true,
       nodeIntegration: true, // 集成node环境到预加载和渲染进程
       contextIsolation: false, //关闭上下文隔离
