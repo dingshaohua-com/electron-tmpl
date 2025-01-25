@@ -4,7 +4,16 @@
   "asar": true,
   "buildVersion": "1",
   "artifactName": "${productName}-${version}.${ext}",
-  "extraResources": ["electron-builder.json"],
+  "electronLanguages": [
+    "zh-CN"
+  ],
+  "extraResources": [
+    "electron-builder.json",
+    {
+      "from": "src/files/watermark.png",
+      "to": "watermark.png"
+    }
+  ],
   "mac": {
     "icon": "src/files/logo/logo.icns"
   },

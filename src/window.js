@@ -1,6 +1,21 @@
 const path = require("path");
 const { app } = require("electron");
 const { BrowserWindow, nativeImage } = require("electron");
+const remote = require('@electron/remote/main/index.js');
+
+remote.initialize();
+
+let watermarkPath;
+if (app.isPackaged) {
+  const appPath = path.resolve(app.getAppPath());
+  const resourcesRoot = path.dirname(appPath);
+  watermarkPath = path.join(resourcesRoot, "watermark.png");
+}else{
+  watermarkPath = require.resolve("./files/watermark.png");
+}
+
+
+global.watermarkPath = watermarkPath;
 
 exports.createMainWindow = () => {
   // 创建主应用窗口
@@ -30,8 +45,9 @@ exports.createMainWindow = () => {
     "renderder",
     "index.html"
   );
-  mainWin.loadURL('http://localhost:8080');
-  // mainWin.loadFile(entryPath);
+  // mainWin.loadURL('http://localhost:8080');
+  mainWin.loadFile(entryPath);
+  remote.enable(mainWin.webContents);
   return mainWin;
 };
 
@@ -66,5 +82,6 @@ exports.createOtherWindow = (width, height, route) => {
     "index.html"
   );
   win.loadFile(entryPath, { hash: route });
+  remote.enable(win.webContents);
   return win;
 };
