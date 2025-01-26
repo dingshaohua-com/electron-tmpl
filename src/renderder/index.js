@@ -8,7 +8,7 @@ const {
 } = require("agora-electron-sdk");
 
 const APPID = "422860c7ccc744b284943683959f4c38"; // 填入你的 App ID
-let token = "007eJxTYJh8agnf9+zd+ZcFFtzYt5jV6+nPKfblOc9T1/0P7vkl/rxQgcHEyMjCzCDZPDk52dzEJMnIwsTSxNjMwtjS1DLNJNnY4nbIlPSGQEaGmgs8TIwMEAjiszKkZRYVlzAwAAA1OyH9"; // 填入你的临时
+let token = "007eJxTYCgwsFFdry589M+VxUWTYtcqnDh+uS8+2cVeumJ6+d/aFfsVGEyMjCzMDJLNk5OTzU1MkowsTCxNjM0sjC1NLdNMko0tGF5PTW8IZGTYcSmciZEBAkF8Voa0zKLiEgYGAF08H88="; // 填入你的临时
 const channel = "first"; // 填入生成 Token 时使用的频道名
 let uid = 123; // 用户 ID，并确保其在频道内的唯一性
 

@@ -15,7 +15,13 @@
     }
   ],
   "mac": {
-    "icon": "src/files/logo/logo.icns"
+    "icon": "src/files/logo/logo.icns",
+    "entitlements": "entitlements.mac.plist",
+    "entitlementsInherit": "entitlements.mac.plist",
+    "extendInfo": {
+      "NSMicrophoneUsageDescription": "请允许访问麦克风",
+      "NSCameraUsageDescription": "请允许访问摄像头"
+    }
   },
   "dmg": {
     "sign": false

@@ -1,6 +1,20 @@
 require("./utils/init.js");
 const { createMainWindow } = require("./window.js");
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, systemPreferences } = require("electron");
+const getMediaAccess =  async () => {
+  const microphonePrivilege =
+    systemPreferences.getMediaAccessStatus("microphone");
+  const cameraPrivilege = systemPreferences.getMediaAccessStatus("camera");
+  if (microphonePrivilege !== "granted") {
+    await systemPreferences.askForMediaAccess("microphone");
+  }
+  if (cameraPrivilege !== "granted") {
+    await systemPreferences.askForMediaAccess("camera");
+  }
+};
+
+getMediaAccess();
+
 
 
 //  当 Electron 准备完成的时候将会被触发此钩子，这个阶段你可以创建浏览器 窗口，并且执行一些其它API

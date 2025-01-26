@@ -37,13 +37,13 @@
   </head>
   <body>
     <div class="app">
-      <button onclick="rtcInit()">开始注册</button>
-      <button onclick="addMark()">开始添加水印</button>
+      <button onclick="rtcInit()">开始直播</button>
+      <button onclick="switchdMark()">水印开关</button>
 
       <div class="videos">
         <div class="video">
           <div class="join-channel-local-video"></div>
-          <!-- <div class="title">本地视频窗口</div> -->
+          <div class="title">本地视频窗口</div>
         </div>
         <div class="video">
           <div class="join-channel-remote-video"></div>
@@ -73,15 +73,23 @@
       };
 
       let rtc;
-      const addMark = () => {
-        // const watermarkImg = "https://cos.dingshaohua.com/logo.png";
-        // const watermarkImg = "./logo.png";
-        // const watermarkImg =
-        // "/Users/dsh/files.localized/code/electron-tmpl/src/renderder/logo.png";
-        // let resourcesRoot = app.getAppPath();
-        console.log("水印图片路径：", $electron.watermarkPath);
-        const res = rtc.addVideoWatermark($electron.watermarkPath, options);
-        console.log("开启水印结果：", res);
+      let markFlag = false;
+      const switchdMark = () => {
+        markFlag = !markFlag;
+        if (markFlag) {
+          console.log("开启水印");
+          // const watermarkImg = "https://cos.dingshaohua.com/logo.png";
+          // const watermarkImg = "./logo.png";
+          // const watermarkImg =
+          // "/Users/dsh/files.localized/code/electron-tmpl/src/renderder/logo.png";
+          // let resourcesRoot = app.getAppPath();
+          console.log("水印图片路径：", $electron.watermarkPath);
+          const res = rtc.addVideoWatermark($electron.watermarkPath, options);
+          console.log("开启水印结果：", res);
+        } else {
+          console.log("关闭水印");
+          rtc.clearVideoWatermarks();
+        }
       };
 
       const rtcInit = async () => {

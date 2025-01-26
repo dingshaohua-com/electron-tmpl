@@ -23,6 +23,7 @@ exports.createMainWindow = () => {
     width: 900,
     height: 600,
     resizable: false,
+    alwaysOnTop: true,
     webPreferences: {
       webSecurity: false,
       preload: path.join(app.getAppPath(), "src", "preload.js"),

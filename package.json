@@ -8,10 +8,6 @@
     "dev": "electron .",
     "build": "electron-builder"
   },
-  "agora_electron": {
-    "platform": "darwin",
-    "prebuilt": true
-  },
   "devDependencies": {
     "electron": "22.3.27",
     "electron-builder": "^25.1.8"
