@@ -1,0 +1,25 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "NODE_OPTIONS=\"--import tsx\" electronmon .",
+    "build": "node ./bin/build.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "electron": "^35.0.3",
+    "electron-builder": "^25.1.8",
+    "electronmon": "^2.0.3",
+    "fs-extra": "^11.3.0",
+    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.11"
+  },
+  "dependencies": {
+    "tsx": "^4.19.3"
+  }
+}

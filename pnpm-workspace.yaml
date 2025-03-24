@@ -1,4 +1,6 @@
 packages:
-  - 'src/apps/**'
-  - 'src/common/**'
-# link-workspace-packages: true
+  - apps/**
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - electron
+  - esbuild
